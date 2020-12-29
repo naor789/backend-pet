@@ -1,0 +1,28 @@
+[
+  {
+    "picture": "./PetsImagespicture-1609244807024.jpg",
+    "name": "miko",
+    "height": "30",
+    "weight": "20",
+    "adoptionStatus": "foster",
+    "hypoallergenic": "false",
+    "breed": "mixed"
+  },
+  {
+    "picture": "./PetsImagespicture-1609244908956.jpg",
+    "name": "miko",
+    "height": "30",
+    "weight": "20",
+    "adoptionStatus": "foster",
+    "hypoallergenic": "false",
+    "breed": "mixed"
+  },
+  {
+    "picture": "./PetsImagespicture-1609248203074.jpg",
+    "name": "uygjy",
+    "height": "ngf",
+    "weight": "ngvn",
+    "adoptionStatus": "nhg",
+    "breed": " v"
+  }
+]

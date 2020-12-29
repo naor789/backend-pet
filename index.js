@@ -4,25 +4,30 @@ var app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const authRoute = require('./API/routes/auth');
+const petRoute = require('./pet');
 const petsListRouter = require("./API/routes/petsList");
 let cors = require('cors')
 
 app.use(cors())
 
 
+
+
+
 dotenv.config();
 app.use(express.json())
 
 mongoose.connect("mongodb+srv://naor:naor123456@cluster-petproject.c4qjc.mongodb.net/petproject?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true }, 
-    () => console.log('connected to db')
+() => console.log('connected to db')
 );
 let db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 
 
+
     
 app.use('/api/user', authRoute);
-// app.use('/api/petslist', petsListRouter)
+app.use('/api/pet', petRoute)
     // const multer = require("multer");
 // const fs = require("fs");
 // const path = require("path");

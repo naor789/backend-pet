@@ -3,7 +3,14 @@
 // router.get('/', (req, res) => {
 //     res.json({
 //         petsList: {
-//             username: "Naor",
+// name: Joi.string().required(),
+//     adoptionStatus: Joi.string().min(3).required(),
+//         height: Joi.string(),
+//             weight: Joi.string(),
+//                 color: Joi.string().min(3),
+//                     bio: Joi.string().min(3),
+//                         dietaryRestrictions: Joi.string().min(3),
+//                             breed: Joi.string().min(3),
 //         }
 //     });
 

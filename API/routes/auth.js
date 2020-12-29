@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const User = require('../model/User')
-const { registerValidation, loginValidation } = require("./validation");
+const { registerValidation, loginValidation, petsValidation } = require("./validation");
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken');
 
@@ -52,5 +52,10 @@ router.post('/login', async (req, res) => {
 
     // res.send('Logged in');
 });
+
+
+
+
+
 
 module.exports = router;

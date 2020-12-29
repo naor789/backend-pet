@@ -9,7 +9,6 @@ const petsSchema = new mongoose.Schema({
         type: String,
         required: true,
         min: 3
-
     },
     height: {
         type: String,
