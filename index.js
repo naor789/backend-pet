@@ -5,7 +5,9 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const authRoute = require('./API/routes/auth');
 const petRoute = require('./pet');
-const petsListRouter = require("./API/routes/petsList");
+const petIdRoute = require('./API/routes/petsID');
+// const findPetsRoute = require('./API/routes/findPets');
+// const petsListRouter = require("./API/routes/petsList");
 let cors = require('cors')
 
 app.use(cors())
@@ -24,10 +26,14 @@ let db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 
 
+app.use(express.static("./PetsImages"));
 
     
 app.use('/api/user', authRoute);
 app.use('/api/pet', petRoute)
+// app.use('/api/findpets', findPetsRoute)
+
+
     // const multer = require("multer");
 // const fs = require("fs");
 // const path = require("path");

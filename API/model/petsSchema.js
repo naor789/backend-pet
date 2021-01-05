@@ -19,27 +19,30 @@ const petsSchema = new mongoose.Schema({
     color: {
         type: String,
         min: 3
-},
+    },
     bio: {
         type: String,
         min: 3
-},
+    },
     dietaryRestrictions: {
         type: String,
         min: 3
-},
+    },
     breed: {
         type: String,
         min: 3
-},
-    picture: {
-        type: File,
     },
-    date: {
-        type: Date,
-        default: Date.now
-    },
+    // picture: {
+    //     // type: String,
+
+    //     data: Buffer,
+    //     contentType: String
+    // },
+    // date: {
+    //     type: Date,
+    //     default: Date.now
+    // },
 
 });
 
-module.exports = mongoose.model('pets', petsSchema);
+module.exports = mongoose.model('Pet', petsSchema);
