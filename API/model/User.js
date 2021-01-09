@@ -14,12 +14,12 @@ const userSchema = new mongoose.Schema({
         max: 1024,
         min: 6
     },
-    confirmPassword: {
-        type: String,
-        required: true,
-        max: 1024,
-        min: 6
-    },
+    // confirmPassword: {
+    //     type: String,
+    //     required: true,
+    //     max: 1024,
+    //     min: 6
+    // },
     firstName: {
         type: String,
         required: true,

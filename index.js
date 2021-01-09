@@ -8,7 +8,7 @@ const petRoute = require('./pet');
 const petIdRoute = require('./API/routes/petsID');
 // const findPetsRoute = require('./API/routes/findPets');
 // const petsListRouter = require("./API/routes/petsList");
-let cors = require('cors')
+const cors = require('cors')
 
 app.use(cors())
 

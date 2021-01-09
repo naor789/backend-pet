@@ -11,10 +11,10 @@ const petsSchema = new mongoose.Schema({
         min: 3
     },
     height: {
-        type: String,
+        type: Number,
     },
     weight: {
-        type: String,
+        type: Number,
     },
     color: {
         type: String,
@@ -32,16 +32,23 @@ const petsSchema = new mongoose.Schema({
         type: String,
         min: 3
     },
+    type: {
+        type: String,
+
+    },
+    hypoallergenic: {
+        type: Boolean,
+    },
     // picture: {
     //     // type: String,
 
     //     data: Buffer,
     //     contentType: String
     // },
-    // date: {
-    //     type: Date,
-    //     default: Date.now
-    // },
+    date: {
+        type: Date,
+        default: Date.now
+    },
 
 });
 
