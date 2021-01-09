@@ -14,12 +14,6 @@ const userSchema = new mongoose.Schema({
         max: 1024,
         min: 6
     },
-    // confirmPassword: {
-    //     type: String,
-    //     required: true,
-    //     max: 1024,
-    //     min: 6
-    // },
     firstName: {
         type: String,
         required: true,
@@ -34,7 +28,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         min: 10
-    },        
+    }, 
     date: {
         type: Date,
         default: Date.now

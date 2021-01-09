@@ -21,23 +21,8 @@ const loginValidation = (data) => {
     return Joi.validate(data, schema)
 }
 
-const petsValidation = (data) => {
-    const schema = Joi.object({
-        name: Joi.string().required(),
-        adoptionStatus: Joi.string().min(3).required(),
-        height: Joi.string(),
-        weight: Joi.string(),
-        color: Joi.string().min(3),
-        bio: Joi.string().min(3),
-        dietaryRestrictions: Joi.string().min(3),
-        breed: Joi.string().min(3),
-// picture: Joi.file().required(),
-    })
-    return Joi.validate(data, schema)
 
-}
 
 
 module.exports.registerValidation = registerValidation;
 module.exports.loginValidation = loginValidation;
-module.exports.petsValidation = petsValidation;
