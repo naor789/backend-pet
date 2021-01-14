@@ -24,7 +24,13 @@ db.on("error", console.error.bind(console, "connection error:"));
 app.use('/api/user', authRoute);
 app.use('/api/pet', petRoute)
 
+app.get("/", (req, res) => {
+    res.status(200).send("hello");
+})
+
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
+
+
