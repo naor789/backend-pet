@@ -12,9 +12,7 @@ router.get('/search', async (req, res) => {
         if (req.query.weight) filter.weight = parseInt(req.query.weight);
         if (req.query.type) filter.type = req.query.type;
         if (req.query.name) filter.name = req.query.name;
-        console.log(filter);
         let pets = await Pet.find(filter);
-        console.log('pet', pets);
         if (pets.length === 0) {
             return res.status(404).send({ err: `No pets found, try again ` });
         }
@@ -28,7 +26,6 @@ router.get('/search', async (req, res) => {
 
 
 router.post("/", async (req, res) => {
-    console.log(req.body);
     const uploadResponse = await cloudinary.uploader.upload(req.body.image, {
         upload_preset: 'pets-images',
     });
@@ -77,107 +74,6 @@ router.get("/:id", async (req, res) => {
 
 
 
-router.put("/foster/:id", async (req, res) => {
-    const petId = req.params.id;
-    const userId = req.body.userId;
-    const petToUpdate = await Pet.updateOne(
-        { _id: petId },
-        {
-            $set: { adoptionStatus: "foster" },
-        }
-    );
-    const user = await User.updateOne(
-        { _id: userId },
-        {
-            $push: { adoptionStatus: { petId } },
-        }
-    );
-    res.send("successfully fostered pet");
-});
-
-
-
-router.put("/adopted/:id", async (req, res) => {
-    const petId = req.params.id;
-    const userId = req.body.userId;
-    const petToUpdate = await Pet.updateOne(
-        { _id: petId },
-        {
-            $set: { adoptionStatus: "adopted" },
-        }
-    );
-    const user = await User.updateOne(
-        { _id: userId },
-        {
-            $push: { adoptionStatus: { petId } },
-        }
-    );
-    res.send("successfully adopted pet");
-});
-
-
-
-
-router.post("/:id/return", async (req, res) => {
-    const petId = req.params.id;
-    const userId = req.body.userId;
-    const petToUpdate = await Pet.updateOne(
-        { _id: petId },
-        {
-            $set: { adoptionStatus: "Available" },
-        }
-    );
-    const user = await User.updateOne(
-        { _id: userId },
-        {
-            $push: { adoptionStatus: { petId } },
-        }
-    );
-    res.send("successfully put back to available");
-});
-
-
-router.put("/:id", async (req, res) => {
-    console.log(req.body);
-    const UpdatedPet = {
-        name: req.body.name,
-        type: req.body.type,
-        height: req.body.height,
-        weight: req.body.weight,
-        color: req.body.color,
-        adoptionStatus: req.body.adoptionStatus,
-        hypoallergenic: req.body.hypoallergenic,
-        dietaryRestrictions: req.body.dietaryRestrictions,
-        breed: req.body.breed,
-        bio: req.body.bio,
-    };
-    console.log('pet', UpdatedPet);
-    try {
-        console.log('id', req.params.id);
-        const pet = await Pet.findOneAndUpdate(
-            { _id: req.params.id },
-            { $set: UpdatedPet },
-            { new: true },
-            (err, UpdatedPet) => {
-                if (err) {
-                    return res.status(400).json('No found')
-                }
-                res.json(UpdatedPet);
-            });
-    } catch (err) {
-        console.log(err);
-    }
-
-
-});
-
-
-
-router.delete("/:id/save", async (req, res) => {
-    const petId = req.params.id;
-    const pet = await Pet.deleteOne({ _id: petId });
-    res.send(pet);
-});
 
 
 
