@@ -5,11 +5,11 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const authRoute = require('./API/routes/auth');
 const petRoute = require('./pet');
-const cors = require('cors')
+// const cors = require('cors')
 
 app.use(express.json({ extended: false, limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
-app.use(cors())
+// app.use(cors())
 dotenv.config();
 
 mongoose.connect("mongodb+srv://naor:naor123456@cluster-petproject.c4qjc.mongodb.net/petproject?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true },
