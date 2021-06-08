@@ -1,4 +1,3 @@
-// const port = process.env.PORT;
 const port = 5000;
 var express = require("express");
 var app = express();
@@ -13,7 +12,7 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cors())
 dotenv.config();
 
-mongoose.connect("mongodb+srv://naor:testpassword@cluster-petproject.c4qjc.mongodb.net/petproject?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true },
+mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true },
     () => console.log('connected to db')
 );
 let db = mongoose.connection;
@@ -25,9 +24,7 @@ db.on("error", console.error.bind(console, "connection error:"));
 app.use('/api/user', authRoute);
 app.use('/api/pet', petRoute)
 
-app.get('/', () => {
-    console.log(`hello`);
-});
+
 
 
 app.listen(port, () => {
