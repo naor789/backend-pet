@@ -12,7 +12,7 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cors())
 dotenv.config();
 
-mongoose.connect("mongodb+srv://naor:testpassword@cluster-petproject.c4qjc.mongodb.net/petproject?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true },
+mongoose.connect("mongodb+srv://naor:naor123456@cluster-petproject.c4qjc.mongodb.net/petproject?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true },
     () => console.log('connected to db')
 );
 let db = mongoose.connection;
