@@ -23,8 +23,9 @@ db.on("error", console.error.bind(console, "connection error:"));
 
 app.use('/api/user', authRoute);
 app.use('/api/pet', petRoute)
-app.use('/', function (req, res, next) {
-    console.log('hello')
+
+app.get('/', (req, res) => {
+    res.send('Hello World!')
 })
 
 
