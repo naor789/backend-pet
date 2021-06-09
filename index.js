@@ -8,26 +8,19 @@ const petRoute = require('./pet');
 // const cors = require('cors')
 
 app.use(express.json({ extended: false, limit: '50mb' }));
-app.use(express.urlencoded({ limit: '50mb', extended: true }));
+// app.use(express.urlencoded({ limit: '50mb', extended: true }));
 // app.use(cors())
 dotenv.config();
 
-mongoose.connect("mongodb+srv://naor:naor123456@cluster-petproject.c4qjc.mongodb.net/petproject?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true },
+mongoose.connect("mongodb+srv://naor:testpassword@cluster-petproject.c4qjc.mongodb.net/petproject?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true },
     () => console.log('connected to db')
 );
 let db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 
 
-
-
 app.use('/api/user', authRoute);
 app.use('/api/pet', petRoute)
-
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
-
 
 
 app.listen(port, () => {
