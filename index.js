@@ -1,10 +1,22 @@
+
+const rookout = require('rookout');
+
+rookout.start({
+    token: 'db0a26ed05664baebaa2c7960a31336c1417bb65ed967be59cbe8af938e3d346',
+    labels: {
+        env: 'dev'
+    }
+})
+
+
 const port = process.env.PORT || 5000;
-var express = require("express");
-var app = express();
+const express = require("express");
+const app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const authRoute = require('./API/routes/auth');
 const petRoute = require('./pet');
+
 // const cors = require('cors')
 
 app.use(express.json({ extended: false, limit: '50mb' }));
