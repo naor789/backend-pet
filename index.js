@@ -18,7 +18,7 @@ const petRoute = require('./pet');
 
 const cors = require('cors')
 
-app.use(express.json({ extended: false, limit: '50mb' }));
+app.use(express.json());
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cors())
 dotenv.config();
